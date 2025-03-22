@@ -44,9 +44,6 @@ a0, a1, ..., a9       (single digit)
 b10, b11, ..., b99     (double digits)
 c100, c101, ..., c999  (triple digits)
 ...
-z[max digits]9         (26 digits)
-za[max+1 digits]0      (27 digits)
-...
 ```
 
 Floats replace the decimal point with 'p' to maintain lexicographic ordering.
