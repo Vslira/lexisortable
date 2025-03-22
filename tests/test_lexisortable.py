@@ -35,6 +35,24 @@ class TestLexisortable(unittest.TestCase):
             
         with self.assertRaises(ValueError):
             lexisort(-100)
+    
+    def test_mole_limit_raises_error(self):
+        # Test that numbers larger than a mole raise ValueError
+        from lexisortable.lexisortable import LOG10_MOLE_2019
+        from math import pow
+        
+        # Just below the limit should work
+        mole_minus = pow(10, LOG10_MOLE_2019 - 0.000001)
+        lexisort(mole_minus)  # Should not raise
+        
+        # At the limit or above should raise ValueError
+        mole = pow(10, LOG10_MOLE_2019)
+        with self.assertRaises(ValueError):
+            lexisort(mole)
+            
+        mole_plus = pow(10, LOG10_MOLE_2019 + 0.000001)
+        with self.assertRaises(ValueError):
+            lexisort(mole_plus)
         
     def test_floats(self):
         # Test positive floats

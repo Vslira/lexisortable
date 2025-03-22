@@ -2,6 +2,7 @@ import string
 from math import log10
 from typing import Union, Tuple, Optional
 
+LOG10_MOLE_2019 = 23.0 + log10(6.02214076)
 
 def _get_prefix_for_digits(digits: int) -> str:
     """Get the appropriate prefix character based on the number of digits."""
@@ -45,11 +46,13 @@ def lexisort(n: Union[int, float]) -> str:
         in the same order as the numerical values.
         
     Raises:
-        ValueError: If n is negative
+        ValueError: If n is negative or greater than one mole
     """
-    # Check for negative numbers
+    # Check for negative numbers or numbers larger than a mole
     if n < 0:
         raise ValueError("lexisort only accepts non-negative numbers (>= 0)")
+    if n > 0 and log10(n) >= LOG10_MOLE_2019:
+        raise ValueError("lexisort only accepts numbers up to one mole, as of the 2019 SI revision")
     
     # Handle floats
     if isinstance(n, float):

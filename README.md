@@ -53,8 +53,9 @@ Floats replace the decimal point with 'p' to maintain lexicographic ordering.
 
 ## Limitations
 
+- Upper bound of one [mole (2019 SI revision)](https://en.wikipedia.org/wiki/Mole_(unit)) on sortable values
 - Only works with non-negative numbers (0 and above)
-- Attempting to use negative numbers will raise a ValueError
+    - Attempting to use negative numbers will raise a ValueError
 
 ## License
 
