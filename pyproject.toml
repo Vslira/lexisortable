@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "lexisortable"
-version = "0.1.0"
+version = "a1.a0.a0"
 description = "Library for turning integers and floats into lexicographically sortable strings"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -14,3 +14,6 @@ authors = []
 [project.urls]
 "Homepage" = "https://github.com/username/lexisortable"
 "Bug Tracker" = "https://github.com/username/lexisortable/issues"
+
+[project.scripts]
+lexisort = "lexisortable.cli:main"
