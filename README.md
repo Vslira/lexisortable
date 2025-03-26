@@ -4,8 +4,11 @@ A Python library for converting non-negative integers and floats into lexicograp
 
 ## Installation
 
+This project is ~~AI slop~~ vibe coded, so out of respect I didn't add it to PyPI.
+Install it directly with pip - or vendor it in, it's just a couple of files and a lot safer:
+
 ```bash
-pip install lexisortable
+pip install git+https://github.com/Vslira/lexisortable.git
 ```
 
 ## Usage
