@@ -10,6 +10,8 @@ pip install lexisortable
 
 ## Usage
 
+### Python API
+
 ```python
 from lexisortable import lexisort, delexisort
 
@@ -33,6 +35,42 @@ try:
     lexisort(-5)  # ValueError: lexisort only accepts non-negative numbers (>= 0)
 except ValueError as e:
     print(e)
+```
+
+### Version Handling
+
+```python
+from lexisortable import lexiver, delexiver
+
+# Converting semantic versions to sortable strings
+print(lexiver("1.0.0"))    # 'a1.a0.a0'
+print(lexiver("2.10.5"))   # 'a2.b10.a5'
+
+# Converting back to semantic versions
+print(delexiver("a1.a0.a0"))    # '1.0.0'
+print(delexiver("a2.b10.a5"))   # '2.10.5'
+```
+
+### Command Line Interface
+
+The package includes a command-line interface for quick conversions:
+
+```bash
+# Convert a number to lexisortable format
+$ lexisortable 42
+b42
+
+# Convert a lexisortable string back to a number
+$ lexisortable -r b42
+42
+
+# Convert a semantic version to lexiver format
+$ lexisortable -v 2.10.5
+a2.b10.a5
+
+# Convert a lexiver string back to a semantic version
+$ lexisortable -v -r a2.b10.a5
+2.10.5
 ```
 
 ## How It Works
